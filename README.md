@@ -15,7 +15,3 @@ A fast DNS code in Python for the simulation of flows over the solid objects wit
 3. Numba
 4. Matplotlib (for plotting)
 5. uvw  (for writing .vtr files)
-
-# Default/test case
-The default parameter setup is for the simulation of mixed convection over two square cylinders arranged transversely in the presence of constant velocity inlet and free slip walls.
-
