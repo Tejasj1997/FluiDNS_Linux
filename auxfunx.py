@@ -28,6 +28,31 @@ def aero(ny,nx,p,eps,rho,u_vel):
     cp_mean = np.mean(cp)
     return cl,cd,cp_mean
 
+def nusnum(T,T0,eps,dx,dy):
+    a,b,V = find(eps)
+    a = a.reshape((a.max()-a.min()+1,b.max()-b.min()+1))
+    b = b.reshape((b.max()-b.min()+1,a.max()-a.min()+1))
+    
+    Tbot = T[a.min()-1,b.min():b.max()+2]
+    Ttop = T[a.max()+1,b.min():b.max()+2]
+    Tlef = T[a.min():a.max()+2,b.min()-1]
+    Trig = T[a.min():a.max()+2,b.max()+1]
+    
+    Nu_top = (T0-Ttop)/(dx)
+    Nu_bot = (T0-Tbot)/(dx)
+    Nu_lef = (T0-Tlef)/(dy)
+    Nu_rig = (T0-Trig)/(dy)
+    
+    Nu = np.array([])
+    Nu = np.append(Nu,Nu_top)
+    Nu = np.append(Nu,Nu_lef)
+    Nu = np.append(Nu,Nu_bot)
+    Nu = np.append(Nu,Nu_rig)
+    
+    Nu_avg = np.mean(Nu)
+    
+    return Nu_avg
+
 def particle_tracks(ptrax,ptray,u,v,dx,dy,dt):
     xl,yl = ptrax[-1],ptray[-1]
     ul,vl = u[int(xl/dx),int(yl/dy)],v[int(xl/dx),int(yl/dy)]
