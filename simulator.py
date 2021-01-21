@@ -131,6 +131,10 @@ class FluiDNS():
             cl,cd,cp = af.aero(self.ny,self.nx,self.p,eps,self.rho,self.vel)
             clr,cdr,cpr = np.append(clr,cl),np.append(cdr,cd),np.append(cpr,cp)
             
+            if self.ene == 'on':
+                Nu = af.nusnum(self.T,self.T0,eps,self.dx,self.dy)
+                Nur = np.append(Nur,Nu)
+            
             if self.motion == 'VIV':
                 y,ydot = af.VIV(ypos[-1],yvel[-1],cl,self.k,self.dt)
                 ypos,yvel = np.append(ypos,y),np.append(yvel,ydot)
