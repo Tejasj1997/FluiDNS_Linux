@@ -107,11 +107,27 @@ amp = 1.0
 fn = 1.5
 st = 0.141
 
-# Time step based on CFL calculations
+# Time step based on CFL calculations and time step recommender
 if ene == 'on':
-    dt = round(CFL*min(1/Re,6/(Pr*Re)),4)
+    dt = CFL*min(1/Re,6/(Pr*Re))
 elif ene == 'off':
-    dt = 0.01
+    dt = CFL/Re
+    
+if dt < 0.001:
+    dt = round(dt,4)
+elif dt < 0.01 and dt > 0.001:
+    dt  = round(dt,3)
+    
+print("###################################################################################")
+print('')
+print('The system based on the present time scales and conservative CFL = '+str(CFL)+' in the simulation is recommending time step to be '+str(dt))
+print('')
+print("###################################################################################")
+dt_acc = input("Do you want to continue with recommended time step?  [y/n]   ")
+if dt_acc == 'no' or dt_acc == 'n':
+    print('Please set the time step!')
+    dt = float(input('dt = '))
+
 
 #### Displaying the setup #############
 original_stdout = sys.stdout
