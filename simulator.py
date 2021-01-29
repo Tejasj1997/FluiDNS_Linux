@@ -82,7 +82,7 @@ class FluiDNS():
         est_time = int(0.2*nt)
         t_rec = np.zeros([est_time,1])
         pro_u,pro_v,pro_p = np.array([]),np.array([]),np.array([])
-        pro_vo = np.array([])
+        pro_vo,Nur = np.array([]),np.array([])
         cpr,clr,cdr = np.array([]),np.array([]),np.array([])
 #         ptrax,ptray = np.array([0]),np.array([6])
         ypos = np.array([self.y_pos])
