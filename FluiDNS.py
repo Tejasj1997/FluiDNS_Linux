@@ -5,8 +5,8 @@
 
 
 import numpy as np
-import auxfunx as af
-from simulator import FluiDNS
+import source.auxfunx as af
+from source.simulator import FluiDNS
 import time
 import os
 import sys
