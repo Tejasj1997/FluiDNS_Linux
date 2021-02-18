@@ -67,4 +67,9 @@ CCHT_square_DOS_-0.3
 15        # x-location of probe 1
 1.5       # y-location of probe 1
 
-#### Go on adding probe locations if more than 1 probes to be used #######################
+##########################################################################################
+# Go on adding probe locations if more than 1 probes to be used.                         #
+# Do not add any custom parameters above this line. Only add them below this.            #
+# Till the line upto index 40 parameters has been created. Add them from 41 below.       #
+# Make suitable changes in the FluiDNS.py driver script accordingly.                     #
+##########################################################################################
