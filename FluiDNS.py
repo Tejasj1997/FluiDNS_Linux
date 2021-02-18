@@ -35,7 +35,7 @@ if os.path.exists(save_dir) and res == 'new':
         os.system("rm -r {}".format(save_dir))
         print("Directory cleaned. Making new one.")
         os.mkdir(save_dir)
-#         os.system("cp {} {}".format('params.txt',save_dir)  
+        os.system('cp params.txt {}'.format('./'+str(SimTit)+'/setup.txt'))  
                   
     elif clean == 'n' or clean == 'no':
         print("")
@@ -51,7 +51,7 @@ if os.path.exists(save_dir) and res == 'new':
         
 if not os.path.exists(save_dir):
     os.mkdir(save_dir)
-#     os.system("cp {} {}".format(str('params.txt'),save_dir)
+    os.system('cp params.txt {}'.format('./'+str(SimTit)+'/setup.txt'))
               
 # saving interval
 isave = int(parf[2])
