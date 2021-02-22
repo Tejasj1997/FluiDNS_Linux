@@ -11,5 +11,4 @@ A highly accurate pseudo-spectral DNS solver for 2 dimensional incompressible fl
 1. Numpy
 2. Scipy
 3. Numba
-4. Matplotlib (for plotting)
 5. uvw  (for writing .vtr files)
