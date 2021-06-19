@@ -1,0 +1,75 @@
+###########################################
+# The parameters definition file
+###########################################
+
+### Simulation title for output save directory #######
+# simulation title
+circins_test_3
+# working directory
+/home/tejas/ins_ibm_study/
+
+### Setup Parameters #####################
+1         # restart spec (1: new, 0:restart)
+100000     # restart iteration 
+200       # plotting interval for creation of vtr files
+2000      # saving/data writing interval
+0         # Aerodynamic and thermal Coefficients (0:off, 1:on)
+
+### Domain Setup and others ##############
+50        # Length (L) 
+2         # Width (H)
+900       # grid points in x (nx)
+100       # grid points in y (ny)
+
+### Fluid Properties
+200      # Reynolds number (Re) 
+0.7         # Prandtl number (Pr) only with energy equation
+0.8        # Richardson number (Ri) only for buoyancy effects
+0.2       # CFL to be obeyed  
+
+### Runtime setup ########################
+0        # starting iteration (0 if new, equal to restart if restart)
+200000      # ending iteration
+
+### Solver Setup and Boundary Conditions #######
+0         # time integration scheme (0: CPM, 1:RK1, 2:AB2) 
+1         # poisson boundary (0: double periodic, 1: X dirichilet)
+0         # x-bound on U vel (0:inout, 1:inout-osc, 2:noslip, 3:parabolic)
+0         # x-bound on V-vel (0:inout, 1:inout-osc, 2:noslip) 18
+1         # y-bound on U vel (0: slip, 1:noslip)
+1         # y-bound on V vel (0: inout, 1:noslip, 2:slip) 
+0.4         # constant inlet velocity (if used)
+1.0       # amplitude of inlet flow oscillations (if used)
+10        # frequency of inlet flow oscillations (if used) 
+
+### IBM and solid body setup ##################
+1         # Insertion of object (0: off, 1:on) 
+0         # Shape of object (0:Circle, 1:Square)
+1         # Characteristic dimension (d - Dia for circle and side for square)
+5         # x-coordinate location of centroid
+1         # y-coordonate location of centroid
+
+### Object motion setup #######################
+0         # type of motion (0:off, 1:forced)
+0.2       # Non-dimensional amplitude (A/d)
+1.0       # Non-dimensional frequency (f/f_s)
+0.2785    # Strouhal frequency (f_s) corresponding to Re 
+
+### Energy equation parameter and BCs ################
+1         # Solution of Energy equation (0:off, 1:on) 
+1         # Effect of buoyancy (0:off, 1:on)
+0         # x-bound on temp (0:inout, 1:isothermal, 2:parabolic)
+1         # y-bound on temp (0:inout, 1:isothermal, 2:adiabatic)
+0         # isothermal boundary temperature on solid 
+0         # Direction of gravitational acceleration in degrees (gravity in pos-Y direction is 0 degrees.)
+1         # Constant heat flux at the walls (only to be used with adiabatic boundary, (q"/k)) 
+
+### Customised probes for point data recording #####################
+0         # Insertion of probes (0:off, 1:on)
+10       # Screen printing interval 
+
+##########################################################################################
+# The above parameter is only a specifier for the insertion of probes.                   #
+# Go to probes.py module in the working directory to specify the probes and locations    #
+# A template is given there one probe. Add as many as you require                        # 
+##########################################################################################
